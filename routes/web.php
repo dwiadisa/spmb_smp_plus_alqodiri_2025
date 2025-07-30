@@ -12,6 +12,7 @@ use App\Http\Controllers\TestingAjah;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WilayahController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
 use RalphJSmit\Laravel\SEO\Support\Sitemap;
 
 
@@ -165,11 +166,8 @@ Route::get('/get-villages', [LocationController::class, 'getVillages']);
 // ROUTES UNTUK LARAVOLT WILAYAH INDONESIA
 // ROUTES untuk mencari sekolah by NPSN
 
-// Route untuk menampilkan form pencarian
-Route::get('/cari-sekolah', [SekolahController::class, 'index'])->name('cari.sekolah.form');
-
-// Route untuk menangani form submission
-Route::get('/cari-sekolah/action', [SekolahController::class, 'cariSekolah'])->name('cari.sekolah');
+// Route untuk mencari sekolah berdasarkan NPSN (menampilkan form dan hasil)
+Route::get('/cari-sekolah', [SekolahController::class, 'search'])->name('cari.sekolah');
 
 // ROUTES untuk mencari sekolah by NPSN
 // testing blade
@@ -186,26 +184,27 @@ Route::get('/sitemap.xml', function () {
     return response()->view('seo.sitemap', [
         'pages' => [
             ['url' => route('home'), 'priority' => 1.0],
-            ['url' => route('auth'), 'priority' => 0.9],
+            ['url' => route('auth'), 'priority' => 0.8],
+            ['url' => route('cari.sekolah'), 'priority' => 0.7],
         ]
     ])->header('Content-Type', 'application/xml');
 });
 
 
-// Route::get('/robots.txt', function () {
-//     $content = implode("\n", [
-//         "# Robots.txt untuk SMP Plus Al-Qodiri Jember",
-//         "User-agent: *",
-//         "Disallow: /admin/",
-//         "Disallow: /login/",
-//         "Disallow: /dashboard/",
-//         "Allow: /img/",
-//         "Allow: /css/",
-//         "",
-//         "# Sitemap",
-//         "Sitemap: " . url('/sitemap.xml')
-//     ]);
+Route::get('/robots.txt', function () {
+    $content = implode("\n", [
+        "User-agent: *",
+        "# Blokir halaman admin dan area privat siswa",
+        "Disallow: /dashboard_admin",
+        "Disallow: /form_siswa",
+        "Disallow: /users",
+        "Disallow: /data_siswa",
+        "Disallow: /auth",
+        "",
+        "# Lokasi Sitemap",
+        "Sitemap: " . url('/sitemap.xml')
+    ]);
 
-//     return Response::make($content)
-//         ->header('Content-Type', 'text/plain');
-// });
+    return Response::make($content)
+        ->header('Content-Type', 'text/plain');
+});
