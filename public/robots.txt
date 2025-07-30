@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://spmb.smppalqodirijember.sch.id/sitemap.xml
