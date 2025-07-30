@@ -7,6 +7,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
     <title>SPMB SMP Plus Al-Qodiri Jember</title>
+    <meta name="description" content="Halaman untuk login dan daftar sebagai calon siswa SMP Plus Al-Qodiri Jember">
+    <meta name="keywords" content="SPMB, SMP Plus Al-Qodiri, Jember, Pendaftaran Sekolah">
+
     <!-- MDB icon -->
     <link rel="icon" href="{{ asset('landing-page/img/logo-smp.png') }}" type="image/x-icon" />
     <!-- Font Awesome -->
@@ -45,7 +48,7 @@
                         <!--<p>jika ada permasalahan login bisa menghubungi admin di bawah ini : </p>-->
                         <!--<p> -->
                         <!--Moh. Yazid Mujadi : -->
-                        
+
                         <!--</p>-->
                     </div>
                     <div class="col-md">
@@ -130,36 +133,35 @@
                 </div>
             </div>
         </div>
-        
-        
-        <style>
-            
-            
-            .float{
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color:#25d366;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-  font-size:30px;
-	box-shadow: 2px 2px 3px #999;
-  z-index:100;
-}
 
-.my-float{
-	margin-top:16px;
-}
+
+        <style>
+            .float {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 40px;
+                right: 40px;
+                background-color: #25d366;
+                color: #FFF;
+                border-radius: 50px;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 2px 2px 3px #999;
+                z-index: 100;
+            }
+
+            .my-float {
+                margin-top: 16px;
+            }
         </style>
-        
-        
+
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a href="https://api.whatsapp.com/send?phone=6281515465448&text=Assalamualaikum Panitia SPMB SMP Plus Al-Qodiri Jember" class="float" target="_blank">
-<i class="fa fa-whatsapp my-float"></i>
-</a>
+        <a href="https://api.whatsapp.com/send?phone=6281515465448&text=Assalamualaikum Panitia SPMB SMP Plus Al-Qodiri Jember"
+            class="float" target="_blank">
+            <i class="fa fa-whatsapp my-float"></i>
+        </a>
     </div>
 
     <!-- End your project here-->
